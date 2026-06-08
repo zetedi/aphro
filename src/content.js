@@ -23,7 +23,7 @@ export const images = {
 export const whatsappMessage =
   "Hello Eliane, I would like to book a 15 minute discovery call with House of Aphrodisia.";
 
-export const whatsappLink = `https://wa.me/3293297423897?text=${encodeURIComponent(
+export const whatsappLink = `https://wa.me/393297423897?text=${encodeURIComponent(
   whatsappMessage,
 )}`;
 
@@ -92,6 +92,7 @@ export const experiences = [
   {
     title: "U FEEL, Tantra Ibiza",
     label: "Workshop",
+    image: images.hand,
     copy:
       "We all crave connection but were not taught how to create it. Through guided and playful experiences, you awaken your senses, connect with your instincts, and discover pleasure from within. The workshop lasts 2h.",
     href: "https://hipsy.eu/events?query=U+FEEL",
@@ -100,6 +101,7 @@ export const experiences = [
   {
     title: "Customized Experiences",
     label: "Private creation",
+    image: images.facing,
     copy:
       "Tell me what you envision: a gathering to celebrate love and connection, a journey into deep presence in nature, or a luxurious soiree designed to awaken your senses. Together with artists, performers, and culinary magicians, we craft an unforgettable experience.",
     href: whatsappLink,
@@ -108,6 +110,7 @@ export const experiences = [
   {
     title: "Aphrodisia Temple Nights",
     label: "Curated circle",
+    image: images.blind,
     copy:
       "The Temple Night is not an event. It is an invitation into a world where sensuality, intimacy, and presence become an art form. Aphrodisia is a safe, sacred playground for self-expression, exploration, and savoring desire, rooted in respect, consent, and integrity.",
     href: "/members-club",

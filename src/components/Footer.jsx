@@ -1,7 +1,7 @@
 import { Instagram, MessageCircle } from "lucide-react";
 
 const instagramUrl = "https://www.instagram.com/templeofaphrodisia/";
-const whatsappUrl = "https://wa.me/3293297423897";
+const whatsappUrl = "https://wa.me/393297423897";
 
 export default function Footer() {
   return (
@@ -33,7 +33,7 @@ export default function Footer() {
             className="inline-flex items-center gap-2 transition duration-300 hover:text-linen"
           >
             <MessageCircle className="h-4 w-4 text-gold/80" strokeWidth={1.5} />
-            +329 3297423897
+            +393297423897
           </a>
         </div>
       </div>

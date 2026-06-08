@@ -13,21 +13,7 @@ export default function ExperiencesPage() {
         description="Aphrodisia experiences are designed as living laboratories for presence, pleasure, consent, beauty, and authentic connection."
       />
 
-      <div className="grid auto-rows-[260px] gap-5 md:grid-cols-4">
-        {[
-          [images.greet, "Eliane greets you", "md:col-span-2 md:row-span-2"],
-          [images.facing, "Two lines of people facing each other", "md:col-span-2"],
-          [images.hand, "Two hands touching", ""],
-          [images.blind, "A couple blindfolded", ""],
-        ].map(([image, alt, className]) => (
-          <article
-            key={alt}
-            className={`overflow-hidden rounded-[1.75rem] border border-white/10 shadow-velvet ${className}`}
-          >
-            <img src={image} alt={alt} className="h-full w-full object-cover" />
-          </article>
-        ))}
-      </div>
+      <FeaturedEvent />
 
       <div className="mt-10 grid gap-5 lg:grid-cols-2">
         {experiences.map((experience, index) => (
@@ -38,8 +24,6 @@ export default function ExperiencesPage() {
           />
         ))}
       </div>
-
-      <FeaturedEvent />
     </section>
   );
 }
@@ -78,7 +62,7 @@ function ExperienceCard({ experience, index }) {
 
 function FeaturedEvent() {
   return (
-    <div className="mt-12 overflow-hidden rounded-[2rem] border border-gold/20 bg-gradient-to-br from-velvet/45 via-obsidian to-[#14110f] shadow-velvet">
+    <div className="overflow-hidden rounded-[2rem] border border-gold/20 bg-gradient-to-br from-velvet/45 via-obsidian to-[#14110f] shadow-velvet">
       <div className="grid gap-8 p-6 sm:p-8 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
         <img
           src={images.candles}
@@ -123,7 +107,7 @@ function FeaturedEvent() {
             </SecondaryLink>
           </div>
           <p className="mt-5 text-sm text-sand/58">
-            Eliane, Lina and the House of Aphrodisia · +329 3297423897 ·
+            Eliane, Lina and the House of Aphrodisia · +393297423897 ·
             instagram.com/templeofaphrodisia
           </p>
         </div>
