@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import Footer from "./Footer";
 import NavBar from "./NavBar";
 
 export default function PageShell({ activePath, children }) {
@@ -12,6 +13,7 @@ export default function PageShell({ activePath, children }) {
         <NavBar activePath={activePath} />
       </header>
       <main className="relative z-10">{children}</main>
+      <Footer />
     </motion.div>
   );
 }

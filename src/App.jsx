@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
+import Footer from "./components/Footer";
 import Hero from "./components/Hero";
 import PageShell from "./components/PageShell";
 import MeetMePage from "./pages/MeetMePage";
@@ -42,6 +43,7 @@ export default function App() {
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <Hero />
+          <Footer />
         </motion.div>
       ) : (
         <PageShell activePath={Page ? path : "/"}>
@@ -54,7 +56,7 @@ export default function App() {
 
 function NotFoundPage() {
   return (
-    <section className="mx-auto max-w-3xl px-6 py-24 text-center sm:px-10">
+    <section className="mx-auto max-w-3xl px-6 pb-20 pt-12 text-center sm:px-10 sm:py-24">
       <p className="text-xs uppercase tracking-[0.45em] text-gold/80">404</p>
       <h1 className="mt-5 font-display text-5xl leading-none text-linen">
         Page not found

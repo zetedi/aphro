@@ -6,7 +6,7 @@ import SectionHeading from "../components/SectionHeading";
 
 export default function MeetMePage() {
   return (
-    <section className="mx-auto max-w-7xl px-6 py-24 sm:px-10">
+    <section className="mx-auto max-w-7xl px-6 pb-20 pt-12 sm:px-10 sm:py-24">
       <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
         <motion.div
           initial={{ opacity: 0, y: 28 }}

@@ -5,7 +5,7 @@ import SectionHeading from "../components/SectionHeading";
 
 export default function MembersClubPage() {
   return (
-    <section className="mx-auto max-w-7xl px-6 py-24 pb-28 sm:px-10">
+    <section className="mx-auto max-w-7xl px-6 pb-24 pt-12 sm:px-10 sm:py-24 sm:pb-28">
       <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
         <div>
           <SectionHeading
