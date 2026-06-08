@@ -1,58 +1,75 @@
-import { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { useEffect, useMemo, useState } from "react";
+import { motion } from "framer-motion";
 import Hero from "./components/Hero";
-import Awakening from "./components/Awakening";
-import Events from "./components/Events";
-import Sanctuary from "./components/Sanctuary";
-import Conduct from "./components/Conduct";
-import ApplicationModal from "./components/ApplicationModal";
+import PageShell from "./components/PageShell";
+import MeetMePage from "./pages/MeetMePage";
+import PracticePage from "./pages/PracticePage";
+import ExperiencesPage from "./pages/ExperiencesPage";
+import MembersClubPage from "./pages/MembersClubPage";
 
-const events = [
-  {
-    title: "Love Temple Weekend",
-    date: "July 18-20, 2026",
-    location: "Secret Villa, San Jose",
-    status: "Applications Open",
-    description:
-      "Three nights of embodied ritual, curated dining, moonlit sound journeys, and private temple ceremonies.",
-  },
-  {
-    title: "Ibiza Sunset Ritual",
-    date: "August 9, 2026",
-    location: "Clifftop Sanctuary, Es Cubells",
-    status: "Intimate Capacity",
-    description:
-      "A golden-hour gathering designed for slow connection, ocean breathwork, and exquisite sensual presence.",
-  },
-];
+const routes = {
+  "/meet-me": MeetMePage,
+  "/practice": PracticePage,
+  "/experiences": ExperiencesPage,
+  "/members-club": MembersClubPage,
+};
 
 export default function App() {
-  const [activeEvent, setActiveEvent] = useState(null);
+  const [path, setPath] = useState(() => normalizePath(window.location.pathname));
+
+  useEffect(() => {
+    const syncPath = () => {
+      setPath(normalizePath(window.location.pathname));
+    };
+
+    window.addEventListener("popstate", syncPath);
+    window.addEventListener("aphro:navigate", syncPath);
+
+    return () => {
+      window.removeEventListener("popstate", syncPath);
+      window.removeEventListener("aphro:navigate", syncPath);
+    };
+  }, []);
+
+  const Page = useMemo(() => routes[path], [path]);
 
   return (
     <div className="min-h-screen bg-obsidian text-linen">
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-      >
-        <Hero onEnter={() => setActiveEvent(events[0])} />
-        <main className="relative z-10">
-          <Awakening />
-          <Events events={events} onApply={setActiveEvent} />
-          <Sanctuary />
-          <Conduct onApply={() => setActiveEvent(events[0])} />
-        </main>
-      </motion.div>
-
-      <AnimatePresence>
-        {activeEvent ? (
-          <ApplicationModal
-            event={activeEvent}
-            onClose={() => setActiveEvent(null)}
-          />
-        ) : null}
-      </AnimatePresence>
+      {path === "/" ? (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+        >
+          <Hero />
+        </motion.div>
+      ) : (
+        <PageShell activePath={Page ? path : "/"}>
+          {Page ? <Page /> : <NotFoundPage />}
+        </PageShell>
+      )}
     </div>
   );
+}
+
+function NotFoundPage() {
+  return (
+    <section className="mx-auto max-w-3xl px-6 py-24 text-center sm:px-10">
+      <p className="text-xs uppercase tracking-[0.45em] text-gold/80">404</p>
+      <h1 className="mt-5 font-display text-5xl leading-none text-linen">
+        Page not found
+      </h1>
+      <p className="mt-5 text-sm leading-7 text-sand/76">
+        The page you are looking for does not exist.
+      </p>
+    </section>
+  );
+}
+
+function normalizePath(pathname) {
+  if (!pathname || pathname === "/") {
+    return "/";
+  }
+
+  return pathname.replace(/\/+$/, "") || "/";
 }

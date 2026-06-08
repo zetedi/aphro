@@ -1,0 +1,105 @@
+import { motion } from "framer-motion";
+import { ExternalLink, MessageCircle, PlayCircle } from "lucide-react";
+import { images, podcasts, testimonials, whatsappLink } from "../content";
+import { PrimaryLink, SecondaryLink } from "../components/ActionLinks";
+import SectionHeading from "../components/SectionHeading";
+
+export default function MeetMePage() {
+  return (
+    <section className="mx-auto max-w-7xl px-6 py-24 sm:px-10">
+      <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
+        <motion.div
+          initial={{ opacity: 0, y: 28 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.25 }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+          className="overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/[0.04] shadow-velvet"
+        >
+          <img
+            src={images.eliane}
+            alt="Eliane in a white dress"
+            className="aspect-[4/5] w-full object-cover"
+          />
+        </motion.div>
+
+        <div>
+          <SectionHeading
+            eyebrow="Meet me"
+            title="The most intimate place you have never been is yourself."
+            description="Something brings you here. Perhaps a relationship that once felt alive has grown quiet. Perhaps you have built a life that looks complete from the outside and feels hollow from within. Perhaps your body has been waiting for you to come back."
+            align="left"
+          />
+          <div className="space-y-5 text-sm leading-8 text-sand/78 sm:text-base">
+            <p>
+              Eliane is a psychotherapist specialising in intimacy and
+              relationships, trained in transpersonal psychology, Gestalt,
+              somatic sexuality, and the teachings of ISTA.
+            </p>
+            <p>
+              What her clients find in her is rare: a guide who has made the
+              journey herself, and who holds the clinical and the sacred with
+              equal precision.
+            </p>
+            <p>
+              She is based in Ibiza, where she has built House of Aphrodisia, a
+              private world for those who are ready to stop performing their
+              lives and begin inhabiting them.
+            </p>
+          </div>
+          <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+            <PrimaryLink href={whatsappLink} icon={MessageCircle}>
+              Book your 15min discovery call
+            </PrimaryLink>
+            <SecondaryLink href="/experiences">Find out our Experiences</SecondaryLink>
+          </div>
+        </div>
+      </div>
+
+      <MediaAndVoices />
+    </section>
+  );
+}
+
+function MediaAndVoices() {
+  return (
+    <div className="mt-20 grid gap-6 lg:grid-cols-[0.85fr_1.15fr]">
+      <div className="rounded-[1.75rem] border border-white/10 bg-white/[0.045] p-6 shadow-velvet">
+        <div className="flex items-center gap-3">
+          <PlayCircle className="h-5 w-5 text-gold" strokeWidth={1.5} />
+          <h3 className="font-display text-3xl text-linen">
+            Podcasts & interviews
+          </h3>
+        </div>
+        <div className="mt-6 space-y-3">
+          {podcasts.map(([title, href]) => (
+            <a
+              key={title}
+              href={href}
+              target="_blank"
+              rel="noreferrer"
+              className="flex items-start justify-between gap-4 rounded-2xl border border-white/10 bg-obsidian/45 px-4 py-3 text-sm leading-6 text-sand/78 transition duration-300 hover:border-gold/35 hover:text-linen"
+            >
+              <span>{title}</span>
+              <ExternalLink className="mt-1 h-4 w-4 shrink-0 text-gold/80" />
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <div className="grid gap-4 sm:grid-cols-2">
+        {testimonials.map((quote, index) => (
+          <motion.blockquote
+            key={quote}
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.65, delay: index * 0.05, ease: "easeOut" }}
+            className="rounded-[1.5rem] border border-white/10 bg-white/[0.04] p-5 text-sm leading-7 text-sand/76 shadow-velvet"
+          >
+            {quote}
+          </motion.blockquote>
+        ))}
+      </div>
+    </div>
+  );
+}
