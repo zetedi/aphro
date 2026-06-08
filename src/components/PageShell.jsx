@@ -8,7 +8,7 @@ export default function PageShell({ activePath, children }) {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.55, ease: "easeOut" }}
     >
-      <header className="border-b border-white/10 bg-obsidian/95">
+      <header className="bg-obsidian/95">
         <NavBar activePath={activePath} />
       </header>
       <main className="relative z-10">{children}</main>

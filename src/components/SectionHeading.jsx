@@ -17,10 +17,10 @@ export default function SectionHeading({
       transition={{ duration: 0.7, ease: "easeOut" }}
       className={`mb-12 ${alignmentClass}`}
     >
-      <p className="mb-4 text-xs uppercase tracking-[0.45em] text-gold/80">
+      <p className="mb-4 text-xs uppercase leading-6 tracking-[0.22em] text-gold/80 sm:tracking-[0.45em]">
         {eyebrow}
       </p>
-      <h2 className="font-display text-4xl leading-none text-linen sm:text-5xl">
+      <h2 className="font-display text-3xl leading-[1.02] text-linen sm:text-5xl sm:leading-none">
         {title}
       </h2>
       <p className="mt-5 text-sm leading-7 text-sand/76 sm:text-base">

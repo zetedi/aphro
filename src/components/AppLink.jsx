@@ -6,11 +6,14 @@ export default function AppLink({
   className,
   target,
   rel,
+  onClick,
   ...props
 }) {
   const external = isExternalHref(href);
 
   const handleClick = (event) => {
+    onClick?.(event);
+
     if (
       external ||
       event.defaultPrevented ||
