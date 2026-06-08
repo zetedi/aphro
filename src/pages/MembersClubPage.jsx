@@ -36,13 +36,13 @@ export default function MembersClubPage() {
 
         <div className="grid gap-5">
           <img
-            src={images.hourglass}
-            alt="An hourglass"
+            src={images.hug}
+            alt="Eliane hugs a lady"
             className="aspect-[5/3] w-full rounded-[1.75rem] border border-white/10 object-cover shadow-velvet"
           />
           <img
-            src={images.hug}
-            alt="Eliane hugs a lady"
+            src={images.hourglass}
+            alt="An hourglass"
             className="aspect-[5/3] w-full rounded-[1.75rem] border border-white/10 object-cover shadow-velvet"
           />
         </div>
