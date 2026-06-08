@@ -1,5 +1,11 @@
 import { motion } from "framer-motion";
-import { ExternalLink, Instagram, MessageCircle, PlayCircle } from "lucide-react";
+import {
+  ExternalLink,
+  Instagram,
+  MessageCircle,
+  PlayCircle,
+  Quote,
+} from "lucide-react";
 import { images, podcasts, testimonials, whatsappLink } from "../content";
 import { PrimaryLink, SecondaryLink } from "../components/ActionLinks";
 import SectionHeading from "../components/SectionHeading";
@@ -98,20 +104,51 @@ function MediaAndVoices() {
         </div>
       </div>
 
-      <div className="grid gap-4 sm:grid-cols-2">
-        {testimonials.map((quote, index) => (
-          <motion.blockquote
-            key={quote}
-            initial={{ opacity: 0, y: 24 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.3 }}
-            transition={{ duration: 0.65, delay: index * 0.05, ease: "easeOut" }}
-            className="rounded-[1.5rem] border border-white/10 bg-white/[0.04] p-5 text-sm leading-7 text-sand/76 shadow-velvet"
-          >
-            {quote}
-          </motion.blockquote>
-        ))}
+      <div className="rounded-[1.75rem] border border-white/10 bg-white/[0.045] p-6 shadow-velvet">
+        <div className="flex items-center gap-3">
+          <Quote className="h-5 w-5 text-gold" strokeWidth={1.5} />
+          <h3 className="font-display text-3xl text-linen">Testimonials</h3>
+        </div>
+
+        <div className="mt-6 grid gap-4 sm:grid-cols-2">
+          {testimonials.map((quote, index) => {
+            const testimonial = splitTestimonial(quote);
+
+            return (
+              <motion.blockquote
+                key={quote}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{
+                  duration: 0.65,
+                  delay: index * 0.05,
+                  ease: "easeOut",
+                }}
+                className="rounded-[1.5rem] border border-white/10 bg-white/[0.04] p-5 text-sm leading-7 text-sand/76 shadow-velvet"
+              >
+                <p>{testimonial.copy}</p>
+                <footer className="mt-5 border-t border-white/10 pt-4 text-xs uppercase tracking-[0.18em] text-gold/80">
+                  {testimonial.author}
+                </footer>
+              </motion.blockquote>
+            );
+          })}
+        </div>
       </div>
     </div>
   );
+}
+
+function splitTestimonial(quote) {
+  const match = quote.match(/^(.*)\s(\([^)]+\))$/);
+
+  if (!match) {
+    return { copy: quote, author: "" };
+  }
+
+  return {
+    copy: match[1],
+    author: match[2],
+  };
 }
