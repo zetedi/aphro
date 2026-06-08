@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import Footer from "./components/Footer";
 import Hero from "./components/Hero";
 import PageShell from "./components/PageShell";
+import ScrollHint from "./components/ScrollHint";
 import MeetMePage from "./pages/MeetMePage";
 import PracticePage from "./pages/PracticePage";
 import ExperiencesPage from "./pages/ExperiencesPage";
@@ -50,13 +51,14 @@ export default function App() {
           {Page ? <Page /> : <NotFoundPage />}
         </PageShell>
       )}
+      <ScrollHint />
     </div>
   );
 }
 
 function NotFoundPage() {
   return (
-    <section className="mx-auto max-w-3xl px-6 pb-20 pt-12 text-center sm:px-10 sm:py-24">
+    <section className="mx-auto max-w-3xl px-6 pb-20 pt-8 text-center sm:px-10 sm:pb-24 sm:pt-10">
       <p className="text-xs uppercase tracking-[0.45em] text-gold/80">404</p>
       <h1 className="mt-5 font-display text-5xl leading-none text-linen">
         Page not found

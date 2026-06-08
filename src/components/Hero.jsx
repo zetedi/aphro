@@ -42,7 +42,10 @@ export default function Hero() {
               className="group inline-flex items-center justify-center gap-3 rounded-full border border-gold/25 bg-gold/10 px-5 py-4 text-center text-xs uppercase tracking-[0.14em] text-linen shadow-glow transition duration-500 hover:scale-[1.02] hover:border-gold/45 hover:bg-gold/15 sm:px-7 sm:text-sm sm:tracking-[0.22em]"
             >
               <MessageCircle className="h-4 w-4 text-gold" strokeWidth={1.5} />
-              Book your 15min discovery call
+              <span className="flex flex-col leading-5">
+                <span>Book your</span>
+                <span>15 min discovery call</span>
+              </span>
             </AppLink>
             <AppLink
               href="/experiences"

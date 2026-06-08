@@ -1,12 +1,12 @@
 import { motion } from "framer-motion";
-import { ExternalLink, MessageCircle, PlayCircle } from "lucide-react";
+import { ExternalLink, Instagram, MessageCircle, PlayCircle } from "lucide-react";
 import { images, podcasts, testimonials, whatsappLink } from "../content";
 import { PrimaryLink, SecondaryLink } from "../components/ActionLinks";
 import SectionHeading from "../components/SectionHeading";
 
 export default function MeetMePage() {
   return (
-    <section className="mx-auto max-w-7xl px-6 pb-20 pt-12 sm:px-10 sm:py-24">
+    <section className="mx-auto max-w-7xl px-6 pb-20 pt-8 sm:px-10 sm:pb-24 sm:pt-10">
       <div className="grid gap-10 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
         <motion.div
           initial={{ opacity: 0, y: 28 }}
@@ -46,9 +46,21 @@ export default function MeetMePage() {
               lives and begin inhabiting them.
             </p>
           </div>
-          <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+          <a
+            href="https://www.instagram.com/aspicyspirit"
+            target="_blank"
+            rel="noreferrer"
+            className="mt-7 inline-flex items-center gap-2 text-sm text-sand/70 transition duration-300 hover:text-linen"
+          >
+            <Instagram className="h-4 w-4 text-gold/80" strokeWidth={1.5} />
+            @aspicyspirit
+          </a>
+          <div className="mt-6 flex flex-col gap-3 sm:flex-row">
             <PrimaryLink href={whatsappLink} icon={MessageCircle}>
-              Book your 15min discovery call
+              <span className="flex flex-col leading-5">
+                <span>Book your</span>
+                <span>15 min discovery call</span>
+              </span>
             </PrimaryLink>
             <SecondaryLink href="/experiences">Find out our Experiences</SecondaryLink>
           </div>

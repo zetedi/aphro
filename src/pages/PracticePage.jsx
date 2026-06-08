@@ -5,7 +5,7 @@ import SectionHeading from "../components/SectionHeading";
 
 export default function PracticePage() {
   return (
-    <section className="mx-auto max-w-7xl px-6 pb-20 pt-12 sm:px-10 sm:py-24">
+    <section className="mx-auto max-w-7xl px-6 pb-20 pt-8 sm:px-10 sm:pb-24 sm:pt-10">
       <SectionHeading
         eyebrow="The practice"
         title="Psychotherapy, somatics, and intimacy work for individuals, couples, and lovers."
