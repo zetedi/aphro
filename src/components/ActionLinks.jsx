@@ -49,7 +49,7 @@ export function SecondaryLink({ href, children }) {
 export function WhatsAppMark() {
   return (
     <span
-      className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_0_18px_rgba(37,211,102,0.28)]"
+      className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-gold/40 bg-gold/12 text-gold shadow-[0_0_18px_rgba(224,169,109,0.22)]"
       aria-hidden="true"
     >
       <WhatsAppIcon />

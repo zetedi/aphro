@@ -148,7 +148,7 @@ export const practiceOfferings = [
   },
   {
     title: "Couples Therapy",
-    audience: "COUPLES / LOVERS",
+    audience: "COUPLES",
     copy:
       "Connection is more important than being right. We begin with the self, reconnecting with the body, emotions, and personal needs, then create a relational space where both partners can be seen, felt, and held in their authenticity.",
     discoveryMinutes: 15,
@@ -156,7 +156,7 @@ export const practiceOfferings = [
   },
   {
     title: "Deep Conscious Intimacy Program",
-    audience: "COUPLES / LOVERS",
+    audience: "COUPLES",
     copy:
       "A personalized 3-month journey for couples who want to deepen conscious intimacy, expand pleasure, and awaken full-body connection through embodiment, somatic practices, energy circulation, conscious touch, emotional attunement, and sacred sensuality.",
     discoveryMinutes: 15,
@@ -166,7 +166,7 @@ export const practiceOfferings = [
   },
   {
     title: "Make intimacy a ritual",
-    audience: "COUPLES / LOVERS",
+    audience: "COUPLES",
     copy:
       "Gift your partner an immersive guided intimacy ritual. Through somatic practices, sensual touch, verbal connection, and presence, you slow down, honor each other, and awaken new dimensions of intimacy. The session lasts 1h20m.",
     discoveryMinutes: 15,

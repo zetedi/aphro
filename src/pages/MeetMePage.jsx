@@ -41,7 +41,7 @@ export default function MeetMePage() {
           />
           <div className="space-y-5 text-sm leading-8 text-sand/78 sm:text-base">
             <p>
-              Eliane is a psychotherapist specialising in intimacy and
+              Eliane is a psychotherapist specialized in intimacy and
               relationships, trained in transpersonal psychology, Gestalt,
               somatic sexuality, and the teachings of ISTA.
             </p>

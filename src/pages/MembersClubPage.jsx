@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+import { Quote } from "lucide-react";
 import { conduct, images, whatsappLinks } from "../content";
 import { PrimaryLink } from "../components/ActionLinks";
 import SectionHeading from "../components/SectionHeading";
@@ -47,17 +49,34 @@ export default function MembersClubPage() {
         </div>
       </div>
 
-      <div className="mt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-16">
+        <div className="flex items-center gap-3">
+          <Quote className="h-5 w-5 text-gold" strokeWidth={1.5} />
+          <h3 className="font-display text-3xl text-linen">
+            Agreements of Members Club:
+          </h3>
+        </div>
+      </div>
+
+      <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {conduct.map((item, index) => (
-          <div
+          <motion.blockquote
             key={item}
-            className="rounded-[1.5rem] border border-white/10 bg-white/[0.045] p-5 shadow-velvet"
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{
+              duration: 0.65,
+              delay: index * 0.05,
+              ease: "easeOut",
+            }}
+            className="rounded-[1.5rem] border border-white/10 bg-white/[0.04] p-5 text-sm leading-7 text-sand/76 shadow-velvet"
           >
-            <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-full border border-gold/20 bg-gold/10 text-sm text-gold">
-              {index + 1}
-            </div>
-            <p className="text-sm leading-7 text-sand/76">{item}</p>
-          </div>
+            <p>{item}</p>
+            <footer className="mt-5 border-t border-white/10 pt-4 text-xs uppercase tracking-[0.18em] text-gold/80">
+              Agreement {index + 1}
+            </footer>
+          </motion.blockquote>
         ))}
       </div>
     </section>
