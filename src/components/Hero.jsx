@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
-import { ArrowDownRight, MessageCircle } from "lucide-react";
-import { images, whatsappLink } from "../content";
+import { ArrowDownRight } from "lucide-react";
+import { images, whatsappLinks } from "../content";
+import { DiscoveryCallText, PrimaryLink } from "./ActionLinks";
 import AppLink from "./AppLink";
 import NavBar from "./NavBar";
 
@@ -37,21 +38,14 @@ export default function Hero() {
           </p>
 
           <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
-            <AppLink
-              href={whatsappLink}
-              className="group inline-flex items-center justify-center gap-3 rounded-full border border-gold/25 bg-gold/10 px-5 py-4 text-center text-xs uppercase tracking-[0.14em] text-linen shadow-glow transition duration-500 hover:scale-[1.02] hover:border-gold/45 hover:bg-gold/15 sm:px-7 sm:text-sm sm:tracking-[0.22em]"
-            >
-              <MessageCircle className="h-4 w-4 text-gold" strokeWidth={1.5} />
-              <span className="flex flex-col leading-5">
-                <span>Book your</span>
-                <span>15 min discovery call</span>
-              </span>
-            </AppLink>
+            <PrimaryLink href={whatsappLinks.houseDiscovery15}>
+              <DiscoveryCallText minutes={15} />
+            </PrimaryLink>
             <AppLink
               href="/experiences"
               className="group inline-flex items-center justify-center gap-3 rounded-full border border-white/15 bg-obsidian/45 px-5 py-4 text-center text-xs uppercase tracking-[0.14em] text-sand backdrop-blur-sm transition duration-500 hover:border-gold/35 hover:bg-white/10 hover:text-linen sm:px-7 sm:text-sm sm:tracking-[0.22em]"
             >
-              Find out our Experiences
+              Find out our Aphrodisia Experiences
               <ArrowDownRight className="h-4 w-4 text-gold transition duration-500 group-hover:translate-x-1 group-hover:-translate-y-1" />
             </AppLink>
           </div>

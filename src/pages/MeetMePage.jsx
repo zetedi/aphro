@@ -2,12 +2,16 @@ import { motion } from "framer-motion";
 import {
   ExternalLink,
   Instagram,
-  MessageCircle,
   PlayCircle,
   Quote,
 } from "lucide-react";
-import { images, podcasts, testimonials, whatsappLink } from "../content";
-import { PrimaryLink, SecondaryLink } from "../components/ActionLinks";
+import elianeWhiteImage from "../../assets/images/eliane-white.webp";
+import { podcasts, testimonials, whatsappLinks } from "../content";
+import {
+  DiscoveryCallText,
+  PrimaryLink,
+  SecondaryLink,
+} from "../components/ActionLinks";
 import SectionHeading from "../components/SectionHeading";
 
 export default function MeetMePage() {
@@ -22,7 +26,7 @@ export default function MeetMePage() {
           className="overflow-hidden rounded-[1.75rem] border border-white/10 bg-white/[0.04] shadow-velvet"
         >
           <img
-            src={images.eliane}
+            src={elianeWhiteImage}
             alt="Eliane in a white dress"
             className="aspect-[4/5] w-full object-cover"
           />
@@ -43,7 +47,7 @@ export default function MeetMePage() {
             </p>
             <p>
               What her clients find in her is rare: a guide who has made the
-              journey herself, and who holds the clinical and the sacred with
+              journey herself, and who holds the therapeutic and the sacred with
               equal precision.
             </p>
             <p>
@@ -61,14 +65,18 @@ export default function MeetMePage() {
             <Instagram className="h-4 w-4 text-gold/80" strokeWidth={1.5} />
             @aspicyspirit
           </a>
-          <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-            <PrimaryLink href={whatsappLink} icon={MessageCircle}>
-              <span className="flex flex-col leading-5">
-                <span>Book your</span>
-                <span>15 min discovery call</span>
-              </span>
+          <div className="mt-6 flex flex-col items-start gap-3 xl:flex-row">
+            <PrimaryLink href={whatsappLinks.practiceDiscovery15}>
+              <DiscoveryCallText minutes={15} />
             </PrimaryLink>
-            <SecondaryLink href="/experiences">Find out our Experiences</SecondaryLink>
+            <SecondaryLink href="/experiences">
+              <span className="flex flex-col leading-5">
+                <span className="whitespace-nowrap">Find out our</span>
+                <span className="whitespace-nowrap">
+                  Aphrodisia Experiences
+                </span>
+              </span>
+            </SecondaryLink>
           </div>
         </div>
       </div>

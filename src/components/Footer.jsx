@@ -1,9 +1,18 @@
-import { Instagram, MessageCircle } from "lucide-react";
+import { useState } from "react";
+import { Instagram } from "lucide-react";
+import {
+  whatsappExperienceChoiceOptions,
+  whatsappPhone,
+  whatsappQualificationFlows,
+} from "../content";
+import { WhatsAppMark } from "./ActionLinks";
+import WhatsAppChoiceModal from "./WhatsAppChoiceModal";
 
 const instagramUrl = "https://www.instagram.com/templeofaphrodisia/";
-const whatsappUrl = "https://wa.me/393297423897";
 
 export default function Footer() {
+  const [experienceModalOpen, setExperienceModalOpen] = useState(false);
+
   return (
     <footer className="border-t border-white/10 bg-[#080607] px-6 py-8 text-sand/68 sm:px-10">
       <div className="mx-auto flex max-w-7xl flex-col gap-5 text-sm sm:flex-row sm:items-center sm:justify-between">
@@ -26,17 +35,25 @@ export default function Footer() {
             <Instagram className="h-4 w-4 text-gold/80" strokeWidth={1.5} />
             @templeofaphrodisia
           </a>
-          <a
-            href={whatsappUrl}
-            target="_blank"
-            rel="noreferrer"
+          <button
+            type="button"
+            onClick={() => setExperienceModalOpen(true)}
             className="inline-flex items-center gap-2 transition duration-300 hover:text-linen"
           >
-            <MessageCircle className="h-4 w-4 text-gold/80" strokeWidth={1.5} />
-            +393297423897
-          </a>
+            <span className="scale-75">
+              <WhatsAppMark />
+            </span>
+            +{whatsappPhone}
+          </button>
         </div>
       </div>
+      {experienceModalOpen ? (
+        <WhatsAppChoiceModal
+          question={whatsappQualificationFlows.experience.question}
+          options={whatsappExperienceChoiceOptions}
+          onClose={() => setExperienceModalOpen(false)}
+        />
+      ) : null}
     </footer>
   );
 }

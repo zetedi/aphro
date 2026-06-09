@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
-import { practiceOfferings, whatsappLink } from "../content";
-import { PrimaryLink, SecondaryLink } from "../components/ActionLinks";
+import { practiceOfferings } from "../content";
+import { DiscoveryCallText, PrimaryLink } from "../components/ActionLinks";
 import SectionHeading from "../components/SectionHeading";
 
 export default function PracticePage() {
@@ -8,8 +8,8 @@ export default function PracticePage() {
     <section className="mx-auto max-w-7xl px-6 pb-20 pt-8 sm:px-10 sm:pb-24 sm:pt-10">
       <SectionHeading
         eyebrow="The practice"
-        title="Psychotherapy, somatics, and intimacy work for individuals, couples, and lovers."
-        description="Choose the work that meets the real threshold of your life: therapeutic depth, transpersonal insight, embodied pleasure, relational repair, or private retreat."
+        title="Psychotherapy, somatics, and conscious intimacy work for individuals, couples, and lovers."
+        description="Choose the work that meets the real threshold of your life: therapeutic depth, transpersonal insight, reconnection with your intimacy, relational repair, or private retreat."
       />
 
       <div className="grid gap-5 lg:grid-cols-2">
@@ -47,9 +47,10 @@ function OfferingCard({ offering, index }) {
         </p>
       ) : null}
       <p className="mt-4 text-sm leading-7 text-sand/74">{offering.copy}</p>
-      <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-        <SecondaryLink href={whatsappLink}>Chat with me</SecondaryLink>
-        <PrimaryLink href={whatsappLink}>{offering.cta}</PrimaryLink>
+      <div className="mt-6 flex">
+        <PrimaryLink href={offering.whatsappHref}>
+          <DiscoveryCallText minutes={offering.discoveryMinutes} />
+        </PrimaryLink>
       </div>
     </motion.article>
   );

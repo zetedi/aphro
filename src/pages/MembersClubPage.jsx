@@ -1,5 +1,4 @@
-import { MessageCircle } from "lucide-react";
-import { conduct, images, whatsappLink } from "../content";
+import { conduct, images, whatsappLinks } from "../content";
 import { PrimaryLink } from "../components/ActionLinks";
 import SectionHeading from "../components/SectionHeading";
 
@@ -9,14 +8,14 @@ export default function MembersClubPage() {
       <div className="grid gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:items-start">
         <div>
           <SectionHeading
-            eyebrow="Aphrodisia members club coming soon"
-            title="Conscious only. No substances, no alcohol. House of Aphrodisia is your raw embodied desire."
+            eyebrow="Conscious only. No substances, no alcohol."
+            title="Aphrodisia Members Club — Memberships Opening Soon"
             description="The invitation is never public. The Temple opens its doors only to a carefully curated circle of guests who choose experience over comfort, presence over distraction, and truth over performance."
             align="left"
           />
           <div className="space-y-4 text-sm leading-7 text-sand/76">
             <p>
-              Aphrodisia Temple Night is a transpersonal space where connection
+              Temple Nights are transpersonal spaces where connection
               transcends ego, gender, and judgment. Freedom reigns: the freedom
               to say yes or no, to experiment, to feel, and to be truly
               yourself.
@@ -28,7 +27,7 @@ export default function MembersClubPage() {
             </p>
           </div>
           <div className="mt-8">
-            <PrimaryLink href={whatsappLink} icon={MessageCircle}>
+            <PrimaryLink href={whatsappLinks.membersClubDiscovery15}>
               Chat with me
             </PrimaryLink>
           </div>

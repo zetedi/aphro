@@ -16,8 +16,37 @@ const routes = {
   "/members-club": MembersClubPage,
 };
 
+const pageMeta = {
+  "/": {
+    title: "House of Aphrodisia | Ibiza Intimacy and Temple Experiences",
+    description:
+      "House of Aphrodisia in Ibiza: psychotherapy, somatics, conscious intimacy work, Temple Nights, Aphrodisia Experiences, Aphrodisia on the Sea, and Aphrodisia Members Club.",
+  },
+  "/meet-me": {
+    title: "Meet Eliane | House of Aphrodisia",
+    description:
+      "Meet Eliane, a psychotherapist specialising in intimacy and relationships, trained in transpersonal psychology, Gestalt, somatic sexuality, and ISTA.",
+  },
+  "/practice": {
+    title: "The Practice | Psychotherapy and Conscious Intimacy",
+    description:
+      "Psychotherapy, somatics, and conscious intimacy work for individuals, couples, and lovers, including Couples Therapy and One-to-One Retreats.",
+  },
+  "/experiences": {
+    title: "Aphrodisia Experiences | Temple Nights and Aphrodisia on the Sea",
+    description:
+      "Aphrodisia Experiences in Ibiza: Temple Nights, private creations, U FEEL Tantra Ibiza, and Aphrodisia on the Sea.",
+  },
+  "/members-club": {
+    title: "Aphrodisia Members Club — Memberships Opening Soon",
+    description:
+      "Aphrodisia Members Club is opening soon for a curated circle of guests entering conscious Temple Nights and intimate Aphrodisia Experiences.",
+  },
+};
+
 export default function App() {
   const [path, setPath] = useState(() => normalizePath(window.location.pathname));
+  const meta = pageMeta[path] ?? pageMeta["/"];
 
   useEffect(() => {
     const syncPath = () => {
@@ -32,6 +61,13 @@ export default function App() {
       window.removeEventListener("aphro:navigate", syncPath);
     };
   }, []);
+
+  useEffect(() => {
+    document.title = meta.title;
+    upsertMeta("description", meta.description);
+    upsertMeta("og:title", meta.title, "property");
+    upsertMeta("og:description", meta.description, "property");
+  }, [meta]);
 
   const Page = useMemo(() => routes[path], [path]);
 
@@ -76,4 +112,16 @@ function normalizePath(pathname) {
   }
 
   return pathname.replace(/\/+$/, "") || "/";
+}
+
+function upsertMeta(name, content, attribute = "name") {
+  let tag = document.head.querySelector(`meta[${attribute}="${name}"]`);
+
+  if (!tag) {
+    tag = document.createElement("meta");
+    tag.setAttribute(attribute, name);
+    document.head.appendChild(tag);
+  }
+
+  tag.setAttribute("content", content);
 }
