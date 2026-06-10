@@ -18,26 +18,26 @@ export default function Hero() {
 
       <NavBar activePath="/" />
 
-      <div className="relative z-10 mx-auto flex min-h-[calc(100vh-136px)] max-w-7xl items-center px-6 pb-16 pt-10 sm:px-10">
+      <div className="relative z-10 mx-auto flex min-h-[calc(100vh-136px)] max-w-7xl items-center px-6 pb-20 pt-8 sm:px-10 sm:pb-16 sm:pt-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9, ease: "easeOut" }}
           className="max-w-4xl"
         >
-          <p className="mb-6 text-xs uppercase leading-6 tracking-[0.22em] text-gold/85 sm:tracking-[0.45em]">
+          <p className="mb-4 text-[10px] uppercase leading-5 tracking-[0.18em] text-gold/85 sm:mb-6 sm:text-xs sm:leading-6 sm:tracking-[0.45em]">
             Ibiza intimacy, ritual, and relationship practice
           </p>
-          <h1 className="max-w-4xl font-display text-5xl leading-[0.92] text-linen sm:text-7xl lg:text-[6.4rem]">
+          <h1 className="max-w-4xl font-display text-4xl leading-[0.96] text-linen sm:text-7xl sm:leading-[0.92] lg:text-[6.4rem]">
             Where pleasure meets authenticity
           </h1>
-          <p className="mt-8 max-w-2xl text-base leading-8 text-sand/82 sm:text-lg">
+          <p className="mt-6 max-w-2xl text-sm leading-7 text-sand/82 sm:mt-8 sm:text-lg sm:leading-8">
             A private world for those ready to stop performing their lives and
             begin inhabiting them through therapy, embodied intimacy, curated
             experiences, and the Aphrodisia temple.
           </p>
 
-          <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
+          <div className="mt-8 flex flex-col gap-4 sm:mt-10 sm:flex-row sm:items-center">
             <PrimaryLink href={whatsappLinks.houseDiscovery15}>
               <DiscoveryCallText minutes={15} />
             </PrimaryLink>

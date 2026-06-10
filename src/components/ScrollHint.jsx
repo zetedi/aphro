@@ -33,13 +33,16 @@ export default function ScrollHint() {
   }
 
   return (
-    <button
-      type="button"
-      aria-label="Scroll down"
-      onClick={() => window.scrollBy({ top: window.innerHeight * 0.82, behavior: "smooth" })}
-      className="fixed bottom-5 left-1/2 z-40 flex h-9 w-9 -translate-x-1/2 items-center justify-center rounded-full border border-gold/20 bg-obsidian/50 text-gold/75 shadow-glow backdrop-blur-md transition duration-300 hover:border-gold/35 hover:text-gold"
-    >
-      <ChevronDown className="h-4 w-4" strokeWidth={1.5} />
-    </button>
+    <div className="pointer-events-none fixed inset-x-0 bottom-0 z-40 flex h-20 items-end justify-center bg-gradient-to-t from-obsidian/90 via-obsidian/45 to-transparent pb-4">
+      <button
+        type="button"
+        aria-label="Scroll down"
+        onClick={() => window.scrollBy({ top: window.innerHeight * 0.82, behavior: "smooth" })}
+        className="pointer-events-auto flex flex-col items-center text-gold/80 transition duration-300 hover:text-gold"
+      >
+        <ChevronDown className="h-5 w-5" strokeWidth={1.5} />
+        <ChevronDown className="-mt-3 h-5 w-5" strokeWidth={1.5} />
+      </button>
+    </div>
   );
 }
