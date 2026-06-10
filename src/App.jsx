@@ -30,7 +30,7 @@ const pageMeta = {
   "/practice": {
     title: "The Practice | Psychotherapy and Conscious Intimacy",
     description:
-      "Psychotherapy, somatics, and conscious intimacy work for individuals, couples, and lovers, including Couples Therapy and One-to-One Retreats.",
+      "Psychotherapy, somatics, and conscious intimacy work for individuals and couples, including Couples Therapy and One-to-One Retreats.",
   },
   "/experiences": {
     title: "Aphrodisia Experiences | Temple Nights and Aphrodisia on the Sea",

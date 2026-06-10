@@ -46,21 +46,24 @@ export function SecondaryLink({ href, children }) {
   );
 }
 
-export function WhatsAppMark() {
+export function WhatsAppMark({
+  className = "h-8 w-8 border border-gold/40 bg-gold/12 shadow-[0_0_18px_rgba(224,169,109,0.22)]",
+  iconClassName = "h-5 w-5",
+} = {}) {
   return (
     <span
-      className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-gold/40 bg-gold/12 text-gold shadow-[0_0_18px_rgba(224,169,109,0.22)]"
+      className={`inline-flex shrink-0 items-center justify-center rounded-full text-gold ${className}`}
       aria-hidden="true"
     >
-      <WhatsAppIcon />
+      <WhatsAppIcon className={iconClassName} />
     </span>
   );
 }
 
-export const WhatsAppIcon = () => (
+export const WhatsAppIcon = ({ className = "h-5 w-5" } = {}) => (
   <svg
     viewBox="0 0 32 32"
-    className="h-5 w-5"
+    className={className}
     fill="currentColor"
     aria-hidden="true"
     xmlns="http://www.w3.org/2000/svg"

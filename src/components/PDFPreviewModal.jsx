@@ -113,13 +113,13 @@ export default function PDFPreviewModal({ event, onClose }) {
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         exit={{ opacity: 0, scale: 0.95 }}
-        className="relative w-full max-w-2xl overflow-hidden rounded-[2rem] border border-white/10 bg-[#120d0f] shadow-2xl"
+        className="relative w-[min(92vw,42rem)] max-h-[92vh] overflow-hidden rounded-[1.25rem] border border-white/10 bg-[#120d0f] shadow-2xl sm:rounded-[2rem]"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(224,169,109,0.1),transparent_40%)]" />
 
-        <div className="relative z-10 flex items-center justify-between border-b border-white/10 p-6">
-          <h3 className="font-display text-2xl text-linen">Event PDF Preview</h3>
+        <div className="relative z-10 flex items-center justify-between border-b border-white/10 p-4 sm:p-6">
+          <h3 className="font-display text-xl text-linen sm:text-2xl">Event PDF Preview</h3>
           <button
             onClick={onClose}
             className="rounded-full bg-white/5 p-2 text-sand transition hover:bg-white/10"
@@ -128,16 +128,16 @@ export default function PDFPreviewModal({ event, onClose }) {
           </button>
         </div>
 
-        <div className="relative z-10 max-h-[70vh] overflow-y-auto p-6">
+        <div className="relative z-10 max-h-[62vh] overflow-y-auto p-3 sm:max-h-[70vh] sm:p-6">
           <div
             ref={pdfContentRef}
-            className="border border-gold/20 bg-gradient-to-br from-velvet/20 to-obsidian p-8"
+            className="mx-auto w-full max-w-[26rem] border border-gold/20 bg-gradient-to-br from-velvet/20 to-obsidian p-4 sm:max-w-none sm:p-8"
           >
-            <div className="pdf-header-container mb-8 flex items-center gap-5 border-b border-gold/30 pb-6">
-              <img src={logoSvg} alt="Logo" className="pdf-logo h-16 w-16" />
+            <div className="pdf-header-container mb-6 flex items-center gap-4 border-b border-gold/30 pb-5 sm:mb-8 sm:gap-5 sm:pb-6">
+              <img src={logoSvg} alt="Logo" className="pdf-logo h-12 w-12 sm:h-16 sm:w-16" />
               <div className="pdf-brand-text">
                 <p className="pdf-brand-top text-[10px] uppercase tracking-[0.3em] text-sand/80">House of</p>
-                <p className="pdf-brand-main font-display text-2xl uppercase tracking-[0.1em] text-gold">Aphrodisia</p>
+                <p className="pdf-brand-main font-display text-xl uppercase tracking-[0.1em] text-gold sm:text-2xl">Aphrodisia</p>
               </div>
             </div>
 
@@ -149,28 +149,28 @@ export default function PDFPreviewModal({ event, onClose }) {
               />
             </div>
 
-            <div className="mt-8">
-              <div className="meta flex gap-4 text-sm text-sand/80">
+            <div className="mt-6 sm:mt-8">
+              <div className="meta flex flex-col gap-1 text-xs text-sand/80 sm:flex-row sm:gap-4 sm:text-sm">
                 <span>{event.date}</span>
                 <span>{event.location}</span>
               </div>
-              <p className="eyebrow mt-4 text-xs uppercase tracking-[0.3em] text-gold/70">
+              <p className="eyebrow mt-4 text-[10px] uppercase tracking-[0.24em] text-gold/70 sm:text-xs sm:tracking-[0.3em]">
                 {event.eyebrow}
               </p>
-              <h1 className="mt-2 font-display text-4xl text-linen">{event.title}</h1>
-              <div className="description mt-6 space-y-4 text-sand/90">
+              <h1 className="mt-2 font-display text-3xl text-linen sm:text-4xl">{event.title}</h1>
+              <div className="description mt-5 space-y-3 text-sm leading-6 text-sand/90 sm:mt-6 sm:space-y-4 sm:text-base sm:leading-7">
                 {event.description.map((p, i) => (
                   <p key={i}>{p}</p>
                 ))}
               </div>
-              <p className="footer mt-10 border-t border-white/10 pt-6 text-xs text-sand/50">
+              <p className="footer mt-8 border-t border-white/10 pt-5 text-[11px] text-sand/50 sm:mt-10 sm:pt-6 sm:text-xs">
                 See you in the Temple · +393297423897 · @templeofaphrodisia
               </p>
             </div>
           </div>
         </div>
 
-        <div className="relative z-10 flex flex-col gap-3 border-t border-white/10 p-6 sm:flex-row sm:justify-end">
+        <div className="relative z-10 flex flex-col gap-3 border-t border-white/10 p-4 sm:flex-row sm:justify-end sm:p-6">
           <button
             onClick={onClose}
             className="flex flex-1 items-center justify-center gap-2 rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm uppercase tracking-widest text-sand transition hover:bg-white/10 sm:flex-none"

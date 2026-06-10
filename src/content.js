@@ -99,10 +99,16 @@ export const whatsappLinks = {
 };
 
 export const whatsappExperienceChoiceOptions =
-  whatsappQualificationFlows.experience.options.map((option) => ({
-    label: option,
-    href: createExperienceWhatsAppLink(option),
-  }));
+  [
+    ...whatsappQualificationFlows.experience.options.map((option) => ({
+      label: option,
+      href: createExperienceWhatsAppLink(option),
+    })),
+    {
+      label: "The practice",
+      href: whatsappLinks.practiceDiscovery15,
+    },
+  ];
 
 export const navItems = [
   { label: "Meet me", href: "/meet-me" },
@@ -114,7 +120,7 @@ export const navItems = [
 export const practiceOfferings = [
   {
     title: "Psychotherapy",
-    audience: "Individuals",
+    audience: "Individuals and couples",
     quote:
       '"Until you make the unconscious conscious, it will direct your life, and you will call it fate." - C.G. Jung',
     copy:
@@ -180,7 +186,7 @@ export const experiences = [
     label: "Workshop",
     image: images.uFeelTantraIbiza,
     copy:
-      "We all crave connection but were not taught how to create it. Through guided and playful experiences, you awaken your senses, connect with your instincts, and discover pleasure from within. The workshop lasts 2h. The workshop takes place every Tuesday evening in Ibiza.",
+      "We all crave connection but were not taught how to create it. Through guided and playful experiences, you awaken your senses, connect with your instincts, and discover pleasure from within. This 2-hour workshop takes place every Tuesday evening in Ibiza, near Santa Eulalia.",
     href: "https://hipsy.eu/events?query=U+FEEL",
     cta: "Check next workshop",
   },
@@ -244,5 +250,5 @@ export const conduct = [
   "Consent: a yes must be a full yes, a no is a full sentence, and a maybe is a no.",
   "Having fun: joy, playfulness, openness, and lightheartedness are part of the space.",
   "No photos or videos by participants. We have a conscious house photographer. You can opt not to be portrayed.",
-  "Playroom etiquette: leave the space tidy, bring what makes you feel playful, and honor the no-penetration boundary of Aphrodisia White Temples. Unleash your creativity.",
+  "Playroom etiquette: leave the space tidy, bring what makes you feel playful, and honor the no-penetration boundary. Unleash your creativity.",
 ];
