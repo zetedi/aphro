@@ -67,6 +67,10 @@ export default function App() {
     upsertMeta("description", meta.description);
     upsertMeta("og:title", meta.title, "property");
     upsertMeta("og:description", meta.description, "property");
+    upsertMeta("og:image", "/og-image.png", "property");
+    upsertMeta("twitter:title", meta.title);
+    upsertMeta("twitter:description", meta.description);
+    upsertMeta("twitter:image", "/og-image.png");
   }, [meta]);
 
   const Page = useMemo(() => routes[path], [path]);
